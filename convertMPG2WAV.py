@@ -19,6 +19,7 @@ def convert(folder: Path, output_format: str = "wav") -> None:
             ["ffmpeg", "-y", "-i", str(f), "-vn", "-c:a", "pcm_s16le", str(out)],
             check=True,
         )
+#ffmpeg -i input.mpg -c:v libx264 -crf 28 -preset slow -c:a aac -b:a 128k output.mp4   #quick command for .mpg -> .mp4 compressed w/o artifacts
 
 if __name__ == "__main__":
     folder = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(".")
